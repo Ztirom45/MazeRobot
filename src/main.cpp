@@ -20,8 +20,8 @@ MeGyro gyro;
 #define pinMotorRB 6
 
 #define move(left,right){\
-  analogWrite((left>0) ? pinMotorLF : pinMotorLB, left);\
-  analogWrite((right>0) ? pinMotorRF : pinMotorRB, right);\
+  analogWrite((left>0) ? pinMotorLF : pinMotorLB, abs(left));\
+  analogWrite((right>0) ? pinMotorRF : pinMotorRB, abs(right));\
 }
 #define stop(){\
   digitalWrite(pinMotorLF, LOW);\
@@ -87,9 +87,9 @@ void setup() {
   stop();
   
   //gyro test
-  move_angle(90,100,&gyro);
+  move_angle(90,255,&gyro);
   delay(1000);
-  move_angle(-45,100,&gyro);
+  move_angle(-45,255,&gyro);
 }
 
 // the loop function runs over and over again forever
