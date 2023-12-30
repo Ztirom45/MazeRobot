@@ -12,6 +12,8 @@ written by Ztirom45
 #include <Wire.h>
 //sensors:
 MeGyro gyro;
+//ultrasonic ME 3
+//ultrasonic 12,13
 
 //motor pins [L]eft/[R]ight [F]orward/[B]ackward
 #define pinMotorLF 9
@@ -76,7 +78,30 @@ void move_angle(int angle,int speed,MeGyro* ptrGyro){
   stop();
 }
 
+double ultrasonic_cm(int trig_pin,int echo_pin,double conversion_factor){
+  //trigger
+  pinMode(trig_pin, OUTPUT);
+  digitalWrite(trig_pin,LOW);
+  delayMicroseconds(2);
+  digitalWrite(trig_pin,HIGH);
+  delayMicroseconds(10);
+  digitalWrite(echo_pin,LOW);
+  
+  //read
+  pinMode(echo_pin,INPUT);
+  return (double)pulseIn(echo_pin,HIGH) *conversion_factor;
+}
+
+#define read_me_ultrasonic() ultrasonic_cm(3,3,1.0/58.0)
+#define read_ultrasonic() ultrasonic_cm(13,12,0.034 / 2.0)
+
 void setup() {
+  //setup pins
+  pinMode(pinMotorRF,OUTPUT);
+  pinMode(pinMotorRF,OUTPUT);
+  pinMode(pinMotorRB,OUTPUT);
+  pinMode(pinMotorLF,OUTPUT);
+  pinMode(pinMotorLB,OUTPUT);
 
   //setup printf
   Serial.begin(9600);
@@ -86,6 +111,13 @@ void setup() {
   gyro.begin();
   stop();
   
+  //ultrasonic test
+  while(true){
+    Serial.print(read_ultrasonic());
+    Serial.print(" , ");
+    Serial.println(read_me_ultrasonic());
+    delay(23);
+  }
   //gyro test
   move_angle(90,255,&gyro);
   delay(1000);
