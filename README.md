@@ -18,12 +18,13 @@ a simple mace robot make with platformio and the Arduino Duemilove
 - Me 3axis gyro
 - Me Ultrasonic Sensor
 - HC-SR04 Ultrasonic Sensor
-- motors
+- 4x gear motors 
 - Arduino Duemilove
-- motor shield
+- L298N Dual Motor Driver
 - a lot of Tape!!!
 - 3d printed part (see 3dfiles)
 - Some MakeBlock Aluminium parts
+- Akku box
 
 ### The plate can mount these Microcontrolers:
 - a Ardino Duemilove
