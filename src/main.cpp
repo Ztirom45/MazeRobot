@@ -85,8 +85,8 @@ double ultrasonic_cm(int trig_pin,int echo_pin,double conversion_factor){
   delayMicroseconds(2);
   digitalWrite(trig_pin,HIGH);
   delayMicroseconds(10);
-  digitalWrite(echo_pin,LOW);
-  
+  digitalWrite(trig_pin,LOW);
+
   //read
   pinMode(echo_pin,INPUT);
   return (double)pulseIn(echo_pin,HIGH) *conversion_factor;
@@ -110,21 +110,32 @@ void setup() {
   //init sensors and motors
   gyro.begin();
   stop();
-  
-  //ultrasonic test
-  while(true){
-    Serial.print(read_ultrasonic());
-    Serial.print(" , ");
-    Serial.println(read_me_ultrasonic());
-    delay(23);
-  }
-  //gyro test
-  move_angle(90,255,&gyro);
-  delay(1000);
-  move_angle(-45,255,&gyro);
+ 
 }
 
 // the loop function runs over and over again forever
+#define TURN_INTENCITY 1
+
 void loop() {
+
+  //wall follower
+  int wall_distance = (int)read_ultrasonic();
+  Serial.println(wall_distance);
+  move((wall_distance<10)?  100+(10-wall_distance)*TURN_INTENCITY  : 75,
+       (wall_distance>10)?  100+(wall_distance-10)*TURN_INTENCITY  : 75);
+
+  
+  delay(23);//better sensor values
+  //cheak for walls in front
+  if(read_me_ultrasonic()<15){
+    stop();
+    delay(500);
+    move_angle(90,150,&gyro);
+    stop();
+    gyro.begin();//reset
+    delay(500);
+
+  }
+  delay(30);//better sensor values
 
 }
