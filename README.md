@@ -1,10 +1,10 @@
-# MaceRobot
-a simple mace robot make with platformio and the Arduino Duemilove
+# MazeRobot
+a simple maze robot make with platformio and the Arduino Duemilove
 
 
-![top](https://github.com/Ztirom45/MaceRobot/blob/main/img/top.png)
-![buttom](https://github.com/Ztirom45/MaceRobot/blob/main/img/front.png)
-![site](https://github.com/Ztirom45/MaceRobot/blob/main/img/site.png)
+![top](https://github.com/Ztirom45/MazeRobot/blob/main/img/top.png)
+![buttom](https://github.com/Ztirom45/MazeRobot/blob/main/img/front.png)
+![site](https://github.com/Ztirom45/MazeRobot/blob/main/img/site.png)
 
 
 ## Features
