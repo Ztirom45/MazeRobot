@@ -4,14 +4,10 @@ a simple maze robot make with platformio and the Arduino Duemilove
 
 
 <p float="left">
-  <img src="https://github.com/Ztirom45/MazeRobot/blob/main/img/top.png" width="100" />
-  <img src="https://github.com/Ztirom45/MazeRobot/blob/main/img/front.png" width="100" /> 
-  <img src="https://github.com/Ztirom45/MazeRobot/blob/main/img/site.png" width="100" />
+  <img src="https://github.com/Ztirom45/MazeRobot/blob/main/img/top.png" width="30%" />
+  <img src="https://github.com/Ztirom45/MazeRobot/blob/main/img/front.png" width="30%" /> 
+  <img src="https://github.com/Ztirom45/MazeRobot/blob/main/img/site.png" width="30%" />
 </p>
-
-<img src="https://github.com/Ztirom45/MazeRobot/blob/main/img/top.png" alt="image" width="50%" height="auto">
-<img src="https://github.com/Ztirom45/MazeRobot/blob/main/img/front.png" alt="image" width="50%" height="auto" style="float:left">
-<img src="https://github.com/Ztirom45/MazeRobot/blob/main/img/site.png" alt="image" width="50%" height="auto" style="float:left">
 
 
 ## Features
